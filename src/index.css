@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+h2{
+  color: white;
+}
+.topnav{
+  margin-top: auto;
+}
+.Home_btn{
+  color:white;
+  font-size: large;
+  margin-left: 50px;
+}
+.Home_btn:hover{
+ text-decoration: none;
+ color: blue;
+}
+.itemIcon_style{
+  margin-right: 206px;
+}
+.itemIcon_style:hover{
+  color: blue;
+}
+.counter_style{
+  margin-left: 111px;
+  margin-top: -23px;
+  color: red;
+}
+.remove_btn{
+  border-radius: 5px;
+  margin-top: -9px;
+  background: none;
+  padding: 3px;
+}
