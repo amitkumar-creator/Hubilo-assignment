@@ -10,7 +10,7 @@ function App() {
   const [wishlistData, setWishlistData] = React.useState([]);
   const handleWishlist = (data) =>{
     setWishlistData([
-      ...wishlistData,
+      [...wishlistData],
         data
     ]);
   }
@@ -37,19 +37,20 @@ function App() {
   const handleRemove = (data) =>{
    console.log(data)
    let addWatchedList = [...wishlistData];
-   addWatchedList = addWatchedList.filter((item)=>item.imdbID !== data.imdbID)
+   addWatchedList = [addWatchedList.flat()]
+   addWatchedList = addWatchedList[0].filter((item)=>item.imdbID !== data.imdbID)
    setWishlistData([
-     ...addWatchedList,
+     [...addWatchedList]
    ])
   }
 
-  const totalAddedLitsItem  = wishlistData.filter((item)=>item).length;
+  const totalAddedLitsItem  = wishlistData && wishlistData.length &&  wishlistData.flat().length;
   return (
     <div className="">
      <Navbar totalAddedLitsItem={totalAddedLitsItem} />
         <Switch>
             <Route exact path="/" render={() => <Home handleWishlist={handleWishlist} handleAddList={handleAddList} />} />
-            <Route exact path="/mylist" render={(props) => <MyList wishlistData={wishlistData} handleRemove={handleRemove} />} />
+            <Route exact path="/mylist" render={(props) => <MyList wishlistData={[wishlistData.flat()]} handleRemove={handleRemove} />} />
         </Switch>
     </div>
   );

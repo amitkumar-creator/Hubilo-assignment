@@ -4,13 +4,16 @@ import './index.css';
 
 const MyList = (props) =>{
     console.log(props)
-
+    const wishListData = props.wishlistData && props.wishlistData.length && props.wishlistData[0];
+    if(!wishListData){
+        return null;
+    }
     return(
         <>
             <div className="container">
                <div className="row">
                     {
-                        props.wishlistData.map((item,i)=>{
+                        wishListData.map((item,i)=>{
                             console.log(item)
                             return (
                             <div className="col-sm-4 card_style">

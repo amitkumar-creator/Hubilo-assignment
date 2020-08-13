@@ -29,8 +29,11 @@ class Home extends React.Component{
             const wishlistdata = Data.find((d)=>d.imdbID === id);
             originalData = originalData.find((d)=>d.imdbID === id);
             originalData.isChecked = e.target.value;
-            this.setState({check:wishlistdata, Data:[...Data,originalData]});
-        }else{
+            this.setState({
+                check:[...this.state.check, wishlistdata]
+            });
+        }
+        else{
             originalData = originalData.find((d)=>d.imdbID === id);
             originalData.isChecked = e.target.value;
         }
@@ -65,7 +68,7 @@ render(){
                     <div className="btn-style">
                                 <label >Search By Year : </label>
                               <select onChange={this.handleSelect}
-                                    // value={this.state.select}
+                                    value={this.state.select}
                                     >
                                     {
                                         [2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,
